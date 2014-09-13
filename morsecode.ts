@@ -1,4 +1,4 @@
-class Translator {
+export class MorseCode {
     public translate = function(to_translate: string) {
         if (/[a-zA-Z0-9]+/.test(to_translate)) {
             return this.translateToMorseCode(to_translate);
@@ -8,13 +8,9 @@ class Translator {
     };
 
     public translateToMorseCode = function(to_translate: string) {
-        return to_translate.toLowerCase().split("").map(function(letter){
-            if(this.theCode.hasOwnProperty(letter)) {
-                return this.theCode[letter];
-            } else {
-                return letter;
-            }
-        }, this).join(" ").replace(/\s+/g, " ");
+        return to_translate.toLowerCase().split("").map(letter => {
+            return this.theCode[letter] || letter;
+        }).join(" ").replace(/\s+/g, " ");
     };
 
     translateToAlphanumeric = function(to_translate: string) {
