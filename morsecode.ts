@@ -9,16 +9,15 @@ export class MorseCode {
 
     public translateToMorseCode = function(to_translate: string) {
         return to_translate.toLowerCase().split("").map(letter => {
-            return this.theCode[letter] || letter;
+            return this.rosettaStone[letter] || letter;
         }).join(" ").replace(/\s+/g, " ");
     };
 
-    translateToAlphanumeric = function(to_translate: string) {
+    public translateToAlphanumeric = function(to_translate: string) {
         return "NOT IMPLEMENTED ERROR ZOMG";
     };
 
-
-    static theCode = {
+    public rosettaStone = {
         a: ". _",
         b: "_ . . .",
         c: "_ . _ .",
